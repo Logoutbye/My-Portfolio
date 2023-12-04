@@ -1,43 +1,64 @@
 class ServicesUtils {
   final String name;
   final String icon;
-  final List<String> tool;
+  final List<String> services;
   final String description;
 
   ServicesUtils(
       {required this.name,
       required this.icon,
       required this.description,
-      required this.tool});
+      required this.services});
 }
 
 List<ServicesUtils> servicesUtils = [
   ServicesUtils(
-    name: 'Android App Development',
+    name: 'Android App Development(Flutter)',
     icon: 'assets/icons/android.svg',
     description:
         "Are you interested in the great Mobile app? Let's make it a reality.",
-    tool: ['Flutter', 'React Native', 'Android (Kotlin or Java)'],
+    services: [
+      'App development from scratch',
+      'Integration of APIs and services',
+      'Deployment to Google Play Store',
+      'Future maintenance/support',
+      'Custom Solutions',
+    ],
   ),
   ServicesUtils(
-    name: 'iOS App Development',
+    name: 'iOS App Development(Flutter)',
     icon: 'assets/icons/apple.svg',
     description:
         "Are you interested in the great Mobile app? Let's make it a reality.",
-    tool: ['Flutter', 'React Native'],
+    services: [
+      'App development from scratch',
+      'Integration of APIs and services',
+      'Deployment to App Store',
+      'Future maintenance/support',
+      'Custom Solutions',
+    ],
   ),
   ServicesUtils(
-    name: 'UI/UX Designing',
+    name: 'Existing App',
     icon: 'assets/icons/graphic.svg',
     description:
         "I'm creating elegant designs suited to your needs following core design theory. ",
-    tool: ['Adobe XD', 'Figma', 'Photoshop'],
+    services: [
+      'Reskinnig/Redesigning app',
+      'Custom UI/UX design',
+    ],
   ),
   ServicesUtils(
-    name: 'Web Development',
+    name: 'Website to App Development(Flutter)',
     icon: 'assets/icons/website.svg',
     description:
         "Do you have an idea for your next great website? Let's make it a reality.",
-    tool: ['Flutter', 'Html,css,js', 'Android (Kotlin or Java)'],
+    services: [
+      'Converting Website to App',
+      'Ad network Integrations',
+      'Deployment to App/Play store',
+      'Future maintenance/support',
+      'Push Notifications',
+    ],
   ),
 ];

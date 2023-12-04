@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mysite/app/widgets/custom_outline.dart';
 import 'package:mysite/core/theme/app_theme.dart';
+
+import '../theme/cubit/theme_cubit.dart';
 
 class ZoomAnimations extends StatefulWidget {
   const ZoomAnimations({Key? key}) : super(key: key);
@@ -58,46 +61,53 @@ class _ZoomAnimationsState extends State<ZoomAnimations>
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    // return BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
 
-    return SizedBox(
-      width: size.width / 4,
-      height: size.width / 4,
-      child: AlignTransition(
-        alignment: _alignAnimation,
-        child: CustomOutline(
-          strokeWidth: 5,
-          radius: size.width * 0.2,
-          padding: const EdgeInsets.all(5),
-          width: size.width * sizeAnimation.value,
-          height: size.width * sizeAnimation.value,
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                theme.secondaryColor,
-                theme.secondaryColor.withOpacity(0),
-                theme.primaryColor.withOpacity(0.1),
-                theme.primaryColor
-              ],
-              stops: const [
-                0.2,
-                0.4,
-                0.6,
-                1
-              ]),
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.black.withOpacity(0.8),
-              image: const DecorationImage(
-                fit: BoxFit.cover,
-                alignment: Alignment.bottomLeft,
-                image: AssetImage('assets/imgs/IMG_0107.png'),
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (BuildContext context, state) {
+        return SizedBox(
+          width: size.width / 4,
+          height: size.width / 4,
+          child: AlignTransition(
+            alignment: _alignAnimation,
+            child: CustomOutline(
+              strokeWidth: 5,
+              radius: size.width * 0.2,
+              padding: const EdgeInsets.all(5),
+              width: size.width * sizeAnimation.value,
+              height: size.width * sizeAnimation.value,
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    theme.secondaryColor,
+                    theme.secondaryColor.withOpacity(0),
+                    theme.primaryColor.withOpacity(0.1),
+                    theme.primaryColor
+                  ],
+                  stops: const [
+                    0.2,
+                    0.4,
+                    0.6,
+                    1
+                  ]),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: state.isDarkThemeOn
+                      ? Colors.white.withOpacity(0.8)
+                      : Colors.black.withOpacity(0.8),
+                  image: const DecorationImage(
+                    fit: BoxFit.cover,
+                    alignment: Alignment.bottomLeft,
+                    image: AssetImage('assets/imgs/IMG_0107b.png'),
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

@@ -14,27 +14,51 @@ class ThemeColors {
       brightness: Brightness.light,
       fontFamily: 'Poppins',
       primaryColor: primaryColor,
-      backgroundColor: lightBackgroundColor,
       scaffoldBackgroundColor: lightBackgroundColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       appBarTheme: AppBarTheme(
         backgroundColor: lightBackgroundColor,
       ),
-      textTheme: TextTheme(button: TextStyle(color: lightTextColor)));
+      textTheme: TextTheme(labelLarge: TextStyle(color: lightTextColor)),
+      colorScheme: ColorScheme.light(
+          background: lightBackgroundColor,
+          // brightness: Brightness.dark,
+          // error: Colors.red,
+          // onBackground: Colors.transparent,
+          // onPrimary: Colors.transparent,
+          // onError: Colors.transparent,
+          // onSecondary: Colors.transparent,
+          // onSurface: Colors.transparent,
+          // primary: Colors.transparent,
+          // secondary: Colors.transparent,
+          // surface: Colors.transparent
+          ));
 
   static final darkTheme = ThemeData(
     brightness: Brightness.dark,
     fontFamily: 'Poppins',
     primaryColor: primaryColor,
-    backgroundColor: darkBackgroundColor,
     scaffoldBackgroundColor: const Color(0xFF00040F),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: TextTheme(
-      button: TextStyle(color: darkTextColor),
+      labelLarge: TextStyle(color: darkTextColor),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: darkBackgroundColor,
     ),
+    colorScheme: ColorScheme.dark(
+        background: darkBackgroundColor,
+        // brightness: Brightness.dark,
+        // error: Colors.red,
+        // onBackground: Colors.transparent,
+        // onPrimary: Colors.transparent,
+        // onError: Colors.transparent,
+        // onSecondary: Colors.transparent,
+        // onSurface: Colors.transparent,
+        // primary: Colors.transparent,
+        // secondary: Colors.transparent,
+        // surface: Colors.transparent
+        ),
   );
   static Brightness get currentSystemBrightness =>
       SchedulerBinding.instance.window.platformBrightness;

@@ -36,7 +36,7 @@ class MainPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       key: drawerProvider.key,
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(120),
         child: Responsive(

@@ -38,7 +38,7 @@ class CustomSectionSubHeading extends StatelessWidget {
     return Responsive(
       desktop: Text(
         text,
-        textAlign: TextAlign.center,
+        textAlign: TextAlign.start,
         style: TextStyle(
           color: theme.textColor.withOpacity(0.6),
           fontSize: 18,

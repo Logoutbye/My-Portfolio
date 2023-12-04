@@ -29,66 +29,68 @@ class HomeDesktop extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top: 10.h),
               width: 55.w,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(hellotag,
-                          style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w100,
-                          )),
-                      EntranceFader(
-                        offset: const Offset(0, 0),
-                        delay: const Duration(seconds: 2),
-                        duration: const Duration(milliseconds: 800),
-                        child: Image.asset(StaticImage.hi, height: 40),
-                      ),
-                    ],
-                  ),
-                  Space.y(0.5.w)!,
-                  Text(yourname,
-                      style: const TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      const Text("A ",
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w400,
-                          )),
-                      AnimatedTextKit(
-                        isRepeatingAnimation: true,
-                        repeatForever: true,
-                        animatedTexts: desktopList,
-                      ),
-                    ],
-                  ),
-                  Space.y(1.5.w)!,
-                  Padding(
-                    padding: EdgeInsets.only(right: 10.w),
-                    child: Text(miniDescription,
-                        style: TextStyle(
-                          fontSize: isFontSize(context, 20),
-                          fontWeight: FontWeight.w400,
-                          color: theme.textColor.withOpacity(0.6),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(hellotag,
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w100,
+                            )),
+                        EntranceFader(
+                          offset: const Offset(0, 0),
+                          delay: const Duration(seconds: 2),
+                          duration: const Duration(milliseconds: 800),
+                          child: Image.asset(StaticImage.hi, height: 40),
+                        ),
+                      ],
+                    ),
+                    Space.y(0.5.w)!,
+                    Text(yourname,
+                        style: const TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.w600,
                         )),
-                  ),
-                  Space.y(3.w)!,
-                  ColorChageButton(
-                    text: 'download cv',
-                    onTap: () {
-                      html.window.open(resume, "pdf");
-                    },
-                  ),
-                ],
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Text("A ",
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.w400,
+                            )),
+                        AnimatedTextKit(
+                          isRepeatingAnimation: true,
+                          repeatForever: true,
+                          animatedTexts: desktopList,
+                        ),
+                      ],
+                    ),
+                    Space.y(1.5.w)!,
+                    Padding(
+                      padding: EdgeInsets.only(right: 10.w),
+                      child: Text(miniDescription,
+                          style: TextStyle(
+                            fontSize: isFontSize(context, 20),
+                            fontWeight: FontWeight.w400,
+                            color: theme.textColor.withOpacity(0.6),
+                          )),
+                    ),
+                    Space.y(3.w)!,
+                    ColorChageButton(
+                      text: 'download cv',
+                      onTap: () {
+                        html.window.open(resume, "pdf");
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             const ZoomAnimations(),

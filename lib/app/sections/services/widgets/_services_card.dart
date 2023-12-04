@@ -64,10 +64,11 @@ class _ServiceCardState extends State<_ServiceCard> {
             if (Responsive.isDesktop(context))
               Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: widget.service.tool
+                  children: widget.service.services
                       .map((e) => Row(
                             children: [
-                              const Text('🛠   '),
+                              const Text('✓   '),
+                              // const Text('🛠   '),
                               Text(e,
                                   style: TextStyle(
                                     color:
@@ -81,18 +82,23 @@ class _ServiceCardState extends State<_ServiceCard> {
                 child: ListView(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,
-                    children: widget.service.tool
-                        .map((e) => Row(
-                              children: [
-                                const Text('🛠   '),
-                                Text(e,
-                                    style: TextStyle(
-                                      color: isHover
-                                          ? whiteColor
-                                          : theme.textColor,
-                                    )),
-                              ],
-                            ))
+                    children: widget.service.services
+                        .map((e) => FittedBox(
+                        // SingleChildScrollView(
+                          // scrollDirection: Axis.horizontal,
+                          child: Row(
+                                children: [
+                                  const Text('✓   '),
+                                  // const Text('🛠   '),
+                                  Text(e,
+                                      style: TextStyle(
+                                        color: isHover
+                                            ? whiteColor
+                                            : theme.textColor,
+                                      )),
+                                ],
+                              ),
+                        ))
                         .toList()),
               )
           ],
